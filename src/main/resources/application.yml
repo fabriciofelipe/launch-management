@@ -1,3 +1,4 @@
+server.port: 9999
 # Spring
 spring:
     cloud:
@@ -15,4 +16,6 @@ spring:
                rabbit:
                   type: rabbit
                   environment:
-                    spring.rabbitmq.addresses: ${ORDERING_RABBIT:amqp://localhost:15672/fluxo_caixa}
+                    spring.rabbitmq.addresses: ${ORDERING_RABBIT:amqp://teste:teste@localhost:5672/fluxo_caixa}
+server:
+    port: 8080
