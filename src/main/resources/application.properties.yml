@@ -7,8 +7,8 @@ spring:
             bindings:
                outputPagamento:
                   destination: pagamento.request.queue
-               durableSubscription: true
-                  outputRecebimento:
+                  durableSubscription: true
+               outputRecebimento:
                   destination: recebimento.request.queue
                   durableSubscription: true
             binders:
