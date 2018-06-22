@@ -6,15 +6,18 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
-public class launchPagamentoEventPublish {
+public class LaunchPagamentoEventPublish {
 
     private final Channels channels;
 
-    public void send(final Launch launch){
+    public Optional<Launch> send(final Launch launch){
         final Message msg = MessageBuilder.withPayload(launch).build();
         channels.outPutPagamento().send(msg);
+        return Optional.ofNullable(launch);
     }
 
 }
