@@ -1,12 +1,11 @@
 package com.launch.management.launchmanagement.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
-import org.hibernate.validator.constraints.br.CNPJ;
-import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -19,28 +18,30 @@ public class Launch {
 
 
     @ApiModelProperty(value = "Tipos de lançamento (pagamento e recebimento)")
-    @NonNull
+    @NotNull
     private String tipoLancamento;
     @ApiModelProperty(value = "Qualquer descrição sobre o pagamento")
     private String descricao;
     @ApiModelProperty(value = "Conta Destino para o Lançamento")
-    @NonNull
+    @NotNull
     private String contaDestino;
     @ApiModelProperty(value = "Banco destino para Lançamento")
-    @NonNull
+    @NotNull
     private String bancoDestino;
     @ApiModelProperty(value = "Tipo Conta CC ou CP")
-    @NonNull
+    @NotNull
     private String tipoConta;
-    @NonNull
+    @NotNull
     @ApiModelProperty(value = "Cpf ou Cnpj para o Lançamento")
     private String cpfCnpjDestino;
     @ApiModelProperty(value = "Valor em reais do lançamento no formato (R$ 0.000,00)")
-    @NonNull
+    @NotNull
     private BigDecimal valorLancamento;
     @ApiModelProperty(value = "Valor em reais dos encargos do lançamento no formato (R$ 0.000,00)")
-    @NonNull
+    @NotNull
     private BigDecimal encargos;
     @ApiModelProperty(value = "Data em que a lançamento o ocorreu no formato (dd-mm-aaaa)")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @NotNull
     private LocalDate dataLacamento;
 }
