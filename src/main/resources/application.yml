@@ -26,3 +26,5 @@ spring:
           write_empty_json_arrays: false
 server:
     port: 8080
+
+spring.data.mongodb.uri: mongodb://localhost:27017/launch-financial
